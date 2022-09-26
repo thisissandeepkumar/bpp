@@ -11,20 +11,25 @@ app.use((req, res, next) => {
 
 app.post("/webhook", async (req, res, next) => {
   console.log(req.body);
-  axios.post("http://0.0.0.0:5084/on_search", {
-    context: {
-      ...req.body.context,
-    },
-    message: {
-      catalog: {
-        "bpp/descriptor": {
-          name: "Apple",
-          code: "NH-323NUI9Ni8",
-          symbol: "cdsun",
+  axios
+    .post("http://0.0.0.0:5084/on_search", {
+      context: {
+        ...req.body.context,
+      },
+      message: {
+        catalog: {
+          "bpp/descriptor": {
+            name: "Apple",
+            code: "NH-323NUI9Ni8",
+            symbol: "cdsun",
+          },
         },
       },
-    },
-  });
+    })
+    .then((response) => {
+      console.log("Response is \n");
+      console.log(response.data);
+    });
   res.status(200).json({
     message: "OK",
   });
