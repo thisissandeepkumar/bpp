@@ -5,6 +5,7 @@ app.use(Express.json());
 
 app.use((req, res, next) => {
   console.log(req.path + "\n");
+  next();
 });
 
 app.post("/webhook/search", async (req, res, next) => {
