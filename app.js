@@ -16,6 +16,6 @@ app.post("/webhook/on_search", async (req, res, next) => {
   });
 });
 
-app.listen(process.env.PORT || 3500, () => {
-  console.log(`Listening on port ${process.env.PORT || 3500}`);
+app.listen(process.env.PORT || 3456, () => {
+  console.log(`Listening on port ${process.env.PORT || 3456}`);
 });
